@@ -13,5 +13,8 @@ COPY package.json /usr/src/app/package.json
 COPY package-lock.json /usr/src/app/package-lock.json
 RUN npm install && npm install react-scripts@1.1.1 -g
 
+EXPOSE 3000
+EXPOSE 35729
+
 # start app
 CMD ["npm", "start"]

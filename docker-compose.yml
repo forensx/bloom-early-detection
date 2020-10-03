@@ -12,5 +12,6 @@ services:
         stdin_open: true
         ports:
             - "3000:3000"
+            - "35729:35729"
         environment:
             - NODE_ENV=development
