@@ -1,0 +1,16 @@
+version: "3.5"
+
+services:
+    client:
+        container_name: bloom_early_detection_client
+        build:
+            context: ./bloom-early-detection
+            dockerfile: Dockerfile
+        volumes:
+            - "./bloom-early-detection:/usr/src/app"
+            - "/usr/src/app/node_modules"
+        stdin_open: true
+        ports:
+            - "3000:3000"
+        environment:
+            - NODE_ENV=development
