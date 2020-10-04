@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tampa Bay",
+        "TIME_SERIES": [],
+        "confidenceInterval": 41.27,
+        "seaSurfaceTemperature": 28.21,
+        "chloroAForecast": 72.21
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-82.49, 27.81]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Port of Mobile",
+        "TIME_SERIES": [],
+        "confidenceInterval": 84.2,
+        "seaSurfaceTemperature": 21.6,
+        "chloroAForecast": 52.01
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-82.543671, 27.763384]
+      }
+    }
+  ]
+}

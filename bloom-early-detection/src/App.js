@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "antd/dist/antd.css";
 import { StaticMap } from "react-map-gl";
-import DeckGL, { GeoJsonLayer, ArcLayer } from "deck.gl";
+import DeckGL, { GeoJsonLayer } from "deck.gl";
 import "./App.css";
 import { Typography } from "antd";
+import tempData from "./data/tempGeo.json";
+import LocationReadout from "./components/LocationReadout";
 const { Title, Text } = Typography;
 
 const MAPBOX_TOKEN =
@@ -13,9 +15,9 @@ const AIR_PORTS =
   "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson";
 
 const INITIAL_VIEW_STATE = {
-  latitude: 51.47,
-  longitude: 0.45,
-  zoom: 4,
+  latitude: 27.763384,
+  longitude: -82.543671,
+  zoom: 9,
   bearing: 0,
   pitch: 30,
 };
@@ -30,41 +32,28 @@ const heatmapColorRange = [
 ];
 
 function App() {
+  const [location, setLocation] = useState(null);
+
   const onClick = (info) => {
     if (info.object) {
-      // eslint-disable-next-line
-      alert(
-        `${info.object.properties.name} (${info.object.properties.abbrev})`
-      );
+      setLocation(info.object);
     }
   };
 
   const layers = [
     new GeoJsonLayer({
-      id: "airports",
-      data: AIR_PORTS,
+      id: "tempData",
+      data: tempData,
       // Styles
       filled: true,
       pointRadiusMinPixels: 2,
       pointRadiusScale: 2000,
-      getRadius: (f) => 11 - f.properties.scalerank,
+      getRadius: (f) => f.seaSurfaceTemperature,
       getFillColor: [200, 0, 80, 180],
       // Interactive props
       pickable: true,
       autoHighlight: true,
       onClick,
-    }),
-    new ArcLayer({
-      id: "arcs",
-      data: AIR_PORTS,
-      dataTransform: (d) =>
-        d.features.filter((f) => f.properties.scalerank < 4),
-      // Styles
-      getSourcePosition: (f) => [-0.4531566, 51.4709959], // London
-      getTargetPosition: (f) => f.geometry.coordinates,
-      getSourceColor: [0, 128, 200],
-      getTargetColor: [200, 0, 80],
-      getWidth: 1,
     }),
   ];
 
@@ -82,11 +71,11 @@ function App() {
           right: "1.5%",
           display: "flex",
           flexDirection: "column",
-          height: "380px",
-          width: "340px",
+          width: "360px",
           paddingLeft: "20px",
           paddingRight: "20px",
           paddingTop: "12px",
+          paddingBottom: "16px",
         }}
       >
         <Title level={4}>Bloom Early Detection</Title>
@@ -122,6 +111,15 @@ function App() {
           <Text>No risk</Text>
           <Text>Risk of HAB</Text>
         </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            paddingTop: 12,
+          }}
+        >
+          <LocationReadout location={location} />
+        </div>
       </div>
       <div
         style={{
@@ -135,7 +133,7 @@ function App() {
         >
           <StaticMap
             mapboxApiAccessToken={MAPBOX_TOKEN}
-            mapStyle="mapbox://styles/mapbox/dark-v9"
+            mapStyle="mapbox://styles/mapbox/satellite-v9"
           />
         </DeckGL>
       </div>
