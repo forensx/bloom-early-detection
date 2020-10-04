@@ -5,11 +5,22 @@
       "type": "Feature",
       "properties": {
         "name": "Tampa Bay",
-        "TIME_SERIES": [],
+        "TIME_SERIES": [
+          { "x": "2019-01-09", "y": 8 },
+          { "x": "2019-01-10", "y": 5 },
+          { "x": "2019-01-11", "y": 4 },
+          { "x": "2019-01-12", "y": 9 },
+          { "x": "2019-01-13", "y": 1 },
+          { "x": "2019-01-14", "y": 7 },
+          { "x": "2019-01-15", "y": 6 },
+          { "x": "2019-01-16", "y": 3 },
+          { "x": "2019-01-17", "y": 2 },
+          { "x": "2019-01-18", "y": 0 }
+        ],
         "confidenceInterval": 41.27,
         "seaSurfaceTemperature": 28.21,
         "chloroAForecast": 72.21,
-        "percentChange": 11.58
+        "percentChange": 11.54
       },
       "geometry": {
         "type": "Point",
@@ -20,7 +31,18 @@
       "type": "Feature",
       "properties": {
         "name": "Port of Mobile",
-        "TIME_SERIES": [],
+        "TIME_SERIES": [
+          { "x": "2019-01-09", "y": 8 },
+          { "x": "2019-01-10", "y": 5 },
+          { "x": "2019-01-11", "y": 4 },
+          { "x": "2019-01-12", "y": 9 },
+          { "x": "2019-01-13", "y": 1 },
+          { "x": "2019-01-14", "y": 7 },
+          { "x": "2019-01-15", "y": 6 },
+          { "x": "2019-01-16", "y": 3 },
+          { "x": "2019-01-17", "y": 2 },
+          { "x": "2019-01-18", "y": 0 }
+        ],
         "confidenceInterval": 84.2,
         "seaSurfaceTemperature": 21.6,
         "chloroAForecast": 52.01,
