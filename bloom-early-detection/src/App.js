@@ -75,7 +75,7 @@ function App() {
           paddingLeft: "20px",
           paddingRight: "20px",
           paddingTop: "12px",
-          paddingBottom: "16px",
+          paddingBottom: "12px",
         }}
       >
         <Title level={4}>Bloom Early Detection</Title>

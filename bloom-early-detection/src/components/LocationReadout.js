@@ -33,14 +33,25 @@ function LocationSpecific(props) {
       <Title level={4}>{location.properties.name}</Title>
       <Row>
         <Col span={12}>
-          <Statistic
-            title="1 month Chloro-a Change:"
-            value={11.28}
-            precision={2}
-            valueStyle={{ color: "#3f8600" }}
-            prefix={<ArrowUpOutlined />}
-            suffix="%"
-          />
+          {location.properties.percentChange > 0 ? (
+            <Statistic
+              title="1 month Chloro-a Change:"
+              value={location.properties.percentChange}
+              precision={2}
+              valueStyle={{ color: "#cf1322" }}
+              prefix={<ArrowUpOutlined />}
+              suffix="%"
+            />
+          ) : (
+            <Statistic
+              title="1 month Chloro-a Change:"
+              value={location.properties.percentChange}
+              precision={2}
+              valueStyle={{ color: "#3f8600" }}
+              prefix={<ArrowDownOutlined />}
+              suffix="%"
+            />
+          )}
         </Col>
         <Col span={12}>
           <Statistic
@@ -64,7 +75,7 @@ function LocationSpecific(props) {
           />
         </Col>
       </Row>
-      <XYPlot height={300} width={300}>
+      <XYPlot height={300} width={300} style={{ paddingTop: "12" }}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis />

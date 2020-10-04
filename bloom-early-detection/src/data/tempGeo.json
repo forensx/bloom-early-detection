@@ -8,7 +8,8 @@
         "TIME_SERIES": [],
         "confidenceInterval": 41.27,
         "seaSurfaceTemperature": 28.21,
-        "chloroAForecast": 72.21
+        "chloroAForecast": 72.21,
+        "percentChange": 11.58
       },
       "geometry": {
         "type": "Point",
@@ -22,7 +23,8 @@
         "TIME_SERIES": [],
         "confidenceInterval": 84.2,
         "seaSurfaceTemperature": 21.6,
-        "chloroAForecast": 52.01
+        "chloroAForecast": 52.01,
+        "percentChange": -17.91
       },
       "geometry": {
         "type": "Point",
