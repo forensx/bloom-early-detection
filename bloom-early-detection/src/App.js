@@ -48,8 +48,20 @@ function App() {
       filled: true,
       pointRadiusMinPixels: 2,
       pointRadiusScale: 2000,
-      getRadius: (f) => f.seaSurfaceTemperature,
-      getFillColor: [200, 0, 80, 180],
+      getRadius: (f) => 30,
+      /// [0, 2], (2, 4], (4, 6], (6, 8], (8, 10]
+      getFillColor: (f) => {
+        if (f.properties.chloroAForecast <= 1) {
+          console.log("no risk");
+          return heatmapColorRange[0];
+        } else if (
+          f.properties.chloroAForecast > 1 &&
+          f.properties.chloroAForecast <= 5
+        ) {
+          console.log("some risk");
+          return heatmapColorRange[1];
+        }
+      },
       // Interactive props
       pickable: true,
       autoHighlight: true,
@@ -78,7 +90,7 @@ function App() {
           paddingBottom: "12px",
         }}
       >
-        <Title level={4}>Bloom Early Detection</Title>
+        <Title level={3}>Bloom Early Detection</Title>
         <Text>An investigation in bloom early prediction.</Text>
         <div
           style={{

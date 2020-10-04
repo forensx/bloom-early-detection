@@ -97,8 +97,9 @@ function LocationGeneral() {
         <Col span={12}>
           <Statistic
             title="Money lost (annually)"
-            value={1_000_000_000}
+            value={900_000_000}
             precision={0}
+            prefix={"$"}
           />
         </Col>
       </Row>
