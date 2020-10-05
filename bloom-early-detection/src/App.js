@@ -7,16 +7,12 @@ import { Typography } from "antd";
 import tempData from "./data/data.json";
 import chlorData from "./data/heatmap_data.json";
 import LocationReadout from "./components/LocationReadout";
-import { Select, Radio } from "antd";
+import { Radio } from "antd";
 
-const { Option } = Select;
 const { Title, Text } = Typography;
 
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoicGFudDIwMDIiLCJhIjoiY2prenlwb2ZtMHlnMjNxbW1ld3VxYWZ4cCJ9.rOb8DhCzsysBIw69MxyWKg"; // eslint-disable-line
-
-const AIR_PORTS =
-  "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson";
 
 const INITIAL_VIEW_STATE = {
   latitude: 44.652382,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Typography } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
-import { Statistic, Row, Col, Button } from "antd";
+import { Statistic, Row, Col } from "antd";
 import "../../node_modules/react-vis/dist/style.css";
 import {
   XYPlot,
