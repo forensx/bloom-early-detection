@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bloom-early-detection/static/css/main.27fd15f6.chunk.css",
+    "main.js": "/bloom-early-detection/static/js/main.4592a622.chunk.js",
+    "main.js.map": "/bloom-early-detection/static/js/main.4592a622.chunk.js.map",
+    "runtime-main.js": "/bloom-early-detection/static/js/runtime-main.2c7ad8c8.js",
+    "runtime-main.js.map": "/bloom-early-detection/static/js/runtime-main.2c7ad8c8.js.map",
+    "static/css/2.a4459bab.chunk.css": "/bloom-early-detection/static/css/2.a4459bab.chunk.css",
+    "static/js/2.f3d8f29d.chunk.js": "/bloom-early-detection/static/js/2.f3d8f29d.chunk.js",
+    "static/js/2.f3d8f29d.chunk.js.map": "/bloom-early-detection/static/js/2.f3d8f29d.chunk.js.map",
+    "index.html": "/bloom-early-detection/index.html",
+    "precache-manifest.7cc6186cce762e38b6fc8549820d3780.js": "/bloom-early-detection/precache-manifest.7cc6186cce762e38b6fc8549820d3780.js",
+    "service-worker.js": "/bloom-early-detection/service-worker.js",
+    "static/css/2.a4459bab.chunk.css.map": "/bloom-early-detection/static/css/2.a4459bab.chunk.css.map",
+    "static/css/main.27fd15f6.chunk.css.map": "/bloom-early-detection/static/css/main.27fd15f6.chunk.css.map",
+    "static/js/2.f3d8f29d.chunk.js.LICENSE.txt": "/bloom-early-detection/static/js/2.f3d8f29d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2c7ad8c8.js",
+    "static/css/2.a4459bab.chunk.css",
+    "static/js/2.f3d8f29d.chunk.js",
+    "static/css/main.27fd15f6.chunk.css",
+    "static/js/main.4592a622.chunk.js"
+  ]
+}
