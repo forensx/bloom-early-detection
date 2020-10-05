@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import { Statistic, Row, Col, Button } from "antd";
@@ -10,6 +10,8 @@ import {
   HorizontalGridLines,
   XAxis,
   YAxis,
+  Hint,
+  MarkSeries,
 } from "react-vis";
 const { Title, Text } = Typography;
 
@@ -31,14 +33,25 @@ function getLastChlorophyllConc(oneMonthArray) {
   return lastValue;
 }
 
+function makeTimeSeriesAxes(month_data) {
+  let date_timeseries = [];
+  let timeseries = month_data;
+  for (let i = 0; i < timeseries.length; i++) {
+    date_timeseries.push({ x: new Date(timeseries[i].x), y: timeseries[i].y });
+  }
+  return date_timeseries;
+}
+
 function LocationSpecific(props) {
+  const [hoveredValue, setHoveredValue] = useState(null);
+  const _forgetValue = () => {
+    setHoveredValue(null);
+  };
+  const _rememberValue = (value) => {
+    setHoveredValue(value);
+  };
+
   const { location } = props;
-  // let date_timeseries = [];
-  // let timeseries = location.properties.ONE_MONTH;
-  // for (let i = 0; i < location.properties.ONE_MONTH.length; i++) {
-  //   date_timeseries.push({ x: new Date(timeseries[i].x), y: timeseries[i].y });
-  // }
-  // location.properties.ONE_MONTH = date_timeseries;
   return (
     <div>
       <Title level={4}>{location.properties.name}</Title>
@@ -105,15 +118,42 @@ function LocationSpecific(props) {
       </Row>
       <XYPlot
         xType="time"
+        xPadding={30}
+        yPadding={30}
         height={300}
         width={300}
         style={{ paddingTop: "12" }}
       >
         <VerticalGridLines />
         <HorizontalGridLines />
-        <XAxis />
-        <YAxis />
-        <LineSeries data={location.properties.ONE_MONTH} />
+        <Title title="Chlorophyll-a concentration (mg/m^3)" />
+        <XAxis tickLabelAngle={-30} />
+        <YAxis title="Chlorophyll-a concentration (mg/m^3)" />
+        <LineSeries
+          color={"#084AEE"}
+          name={"Historic"}
+          data={makeTimeSeriesAxes(location.properties.ONE_MONTH)}
+        />
+        <LineSeries
+          color={"#08ACEE"}
+          name={"Forecast"}
+          data={makeTimeSeriesAxes(location.properties.ONE_FORECAST)}
+        />
+        <MarkSeries
+          size={3}
+          color={"#084AEE"}
+          onValueMouseOver={_rememberValue}
+          onValueMouseOut={_forgetValue}
+          data={makeTimeSeriesAxes(location.properties.ONE_MONTH)}
+        />
+        <MarkSeries
+          size={3}
+          color={"#08ACEE"}
+          onValueMouseOver={_rememberValue}
+          onValueMouseOut={_forgetValue}
+          data={makeTimeSeriesAxes(location.properties.ONE_FORECAST)}
+        />
+        {hoveredValue ? <Hint value={hoveredValue} /> : null}
       </XYPlot>
     </div>
   );

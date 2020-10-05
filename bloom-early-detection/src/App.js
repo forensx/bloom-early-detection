@@ -50,19 +50,37 @@ function App() {
       pointRadiusScale: 2000,
       getRadius: (f) => 5,
       /// [0, 2], (2, 4], (4, 6], (6, 8], (8, 10]
-      // getFillColor: (f) => {
-      //   if (f.properties.chloroAForecast <= 1) {
-      //     console.log("no risk");
-      //     return heatmapColorRange[0];
-      //   } else if (
-      //     f.properties.chloroAForecast > 1 &&
-      //     f.properties.chloroAForecast <= 5
-      //   ) {
-      //     console.log("some risk");
-      //     return heatmapColorRange[1];
-      //   }
-      // },
-      getFillColor: [255, 0, 0],
+      getFillColor: (f) => {
+        if (f.properties.chloroAForecast <= 1.6666666667) {
+          return heatmapColorRange[0];
+        } else if (
+          f.properties.chloroAForecast > 1.6666666667 &&
+          f.properties.chloroAForecast <= 3.3333333334
+        ) {
+          return heatmapColorRange[1];
+        } else if (
+          (f.properties.chloroAForecast > 3.3333333334) &
+          (f.properties.chloroAForecast <= 5.0000000001)
+        ) {
+          return heatmapColorRange[2];
+        } else if (
+          (f.properties.chloroAForecast > 5.0000000001) &
+          (f.properties.chloroAForecast <= 6.6666666668)
+        ) {
+          return heatmapColorRange[3];
+        } else if (
+          (f.properties.chloroAForecast > 6.6666666668) &
+          (f.properties.chloroAForecast <= 8.3333333335)
+        ) {
+          return heatmapColorRange[4];
+        } else if (
+          (f.properties.chloroAForecast > 8.3333333335) &
+          (f.properties.chloroAForecast <= 10)
+        ) {
+          return heatmapColorRange[5];
+        }
+      },
+      // getFillColor: [255, 0, 0],
       // Interactive props
       pickable: true,
       autoHighlight: true,
@@ -129,6 +147,7 @@ function App() {
             display: "flex",
             flexDirection: "column",
             paddingTop: 12,
+            marginBottom: 6,
           }}
         >
           <LocationReadout location={location} />
