@@ -165,14 +165,37 @@ function LocationGeneral() {
       <Title level={4}>United States</Title>
       <Row>
         <Col span={12}>
-          <Statistic title="Affected Population" value={11012893} />
+          <Statistic
+            title="Percent of states with harmful algae blooms annually"
+            value={50}
+            suffix={"%"}
+            prefix={">"}
+          />
         </Col>
         <Col span={12}>
           <Statistic
-            title="Money lost (annually)"
+            title="Percent of waterbodies with excessive nutrient input"
+            value={65}
+            suffix={"%"}
+            prefix={">"}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={12}>
+          <Statistic
+            title="Annual health costs"
             value={900_000_000}
             precision={0}
             prefix={"$"}
+          />
+        </Col>
+        <Col span={12}>
+          <Statistic
+            title="Dead Zone surface area"
+            value={245000}
+            precision={0}
+            suffix={"(sq. km.)"}
           />
         </Col>
       </Row>
