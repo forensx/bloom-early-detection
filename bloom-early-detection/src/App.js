@@ -4,7 +4,7 @@ import { StaticMap } from "react-map-gl";
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import "./App.css";
 import { Typography } from "antd";
-import tempData from "./data/tempGeo.json";
+import tempData from "./data/data.json";
 import LocationReadout from "./components/LocationReadout";
 const { Title, Text } = Typography;
 
@@ -15,9 +15,9 @@ const AIR_PORTS =
   "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson";
 
 const INITIAL_VIEW_STATE = {
-  latitude: 27.763384,
-  longitude: -82.543671,
-  zoom: 9,
+  latitude: 44.652382,
+  longitude: -83.902433,
+  zoom: 6,
   bearing: 0,
   pitch: 30,
 };
@@ -48,20 +48,21 @@ function App() {
       filled: true,
       pointRadiusMinPixels: 2,
       pointRadiusScale: 2000,
-      getRadius: (f) => 30,
+      getRadius: (f) => 5,
       /// [0, 2], (2, 4], (4, 6], (6, 8], (8, 10]
-      getFillColor: (f) => {
-        if (f.properties.chloroAForecast <= 1) {
-          console.log("no risk");
-          return heatmapColorRange[0];
-        } else if (
-          f.properties.chloroAForecast > 1 &&
-          f.properties.chloroAForecast <= 5
-        ) {
-          console.log("some risk");
-          return heatmapColorRange[1];
-        }
-      },
+      // getFillColor: (f) => {
+      //   if (f.properties.chloroAForecast <= 1) {
+      //     console.log("no risk");
+      //     return heatmapColorRange[0];
+      //   } else if (
+      //     f.properties.chloroAForecast > 1 &&
+      //     f.properties.chloroAForecast <= 5
+      //   ) {
+      //     console.log("some risk");
+      //     return heatmapColorRange[1];
+      //   }
+      // },
+      getFillColor: [255, 0, 0],
       // Interactive props
       pickable: true,
       autoHighlight: true,
