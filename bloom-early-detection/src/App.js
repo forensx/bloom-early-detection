@@ -73,6 +73,8 @@ function App() {
           data: tempData,
           // Styles
           filled: true,
+          extruded: true,
+          getElevation: 1000,
           pointRadiusMinPixels: 2,
           pointRadiusScale: 2000,
           getRadius: (f) => 5,
