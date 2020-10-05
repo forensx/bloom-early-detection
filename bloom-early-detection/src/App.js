@@ -228,6 +228,14 @@ function App() {
         >
           <LocationReadout location={location} />
         </div>
+        <div style={{ paddingTop: "12px", paddingLeft: "60%" }}>
+          <Text>
+            View Code:{" "}
+            <a href="https://github.com/forensx/bloom-early-detection">
+              GitHub
+            </a>
+          </Text>
+        </div>
       </div>
       <div
         style={{
