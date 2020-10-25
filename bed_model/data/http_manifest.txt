@@ -1,0 +1,2 @@
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/requested_files_1.tar?h=ocdist305&p=/data1/d07010005796f050/requested_files
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/requested_files_2.tar?h=ocdist305&p=/data1/d07010005796f050/requested_files
